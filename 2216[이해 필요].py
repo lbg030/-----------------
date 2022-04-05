@@ -20,3 +20,5 @@ for i in range(1, len(Y)+1):
                            [j] + b, dp[i][j-1] + b)
 print(dp)
 print(dp[len(Y)][len(X)])
+
+# https://www.acmicpc.net/problem/2216
