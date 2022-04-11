@@ -9,14 +9,15 @@ idx = li[0]
 value = li[idx]
 
 for _ in range(n-1):
-    temp = idx
     c_list.append(li2.index(value) + 1)
+    print(value)
     idx += value
     value = li[idx]
 
-    if(idx > len(li)):
+    while (idx > len(li)):
         idx -= len(li)
 
-    del li[temp]
+    temp = idx
+    li.pop(temp)
 
 print(c_list)
