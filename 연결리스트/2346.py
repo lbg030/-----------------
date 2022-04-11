@@ -1,20 +1,22 @@
+# 이동을 먼저 하고 그 전에 것을 지운다.
+# temp 사용 하면 될 꺼 같은데
+
 n = int(input())
 li = list(map(int, input().split()))
 li2 = li[:]
-count_list = []
-idx = 0
-
+c_list = [1]
+idx = li[0]
+value = li[idx]
 
 for _ in range(n-1):
-    value = li[idx]
     temp = idx
-    count_list.append(li2.index(value) + 1)
-    print(f"value = {value}")
+    c_list.append(li2.index(value) + 1)
     idx += value
-    del li[temp]
-    while idx >= len(li):
-        print(";;")
+    value = li[idx]
+
+    if(idx > len(li)):
         idx -= len(li)
 
-count_list.append(*li)
-print(*count_list)
+    del li[temp]
+
+print(c_list)
