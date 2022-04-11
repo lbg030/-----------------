@@ -1,5 +1,9 @@
-a = [1, 2, 3, 4, 5]
+from collections import deque
 
-num = a.pop(3)
-print(num)
+a = deque([1, 2, 3, 4, 5])
+
+a.rotate(-2)
+print(a)
+
+a.rotate(-1)
 print(a)
