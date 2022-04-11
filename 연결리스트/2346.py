@@ -1,23 +1,18 @@
 # 이동을 먼저 하고 그 전에 것을 지운다.
 # temp 사용 하면 될 꺼 같은데
+from collections import deque
 
 n = int(input())
-li = list(map(int, input().split()))
-li2 = li[:]
-c_list = [1]
-idx = li[0]
-value = li[idx]
+li = deque(enumerate(map(int, input().split())))
+# print(li)
+ans = []
 
-for _ in range(n-1):
-    c_list.append(li2.index(value) + 1)
-    print(value)
-    idx += value
-    value = li[idx]
+while li:
+    idx, value = li.popleft()
+    ans.append(idx+1)
+    if(value > 0):
+        li.rotate(-(value-1))
+    else:
+        li.rotate(-value)
 
-    while (idx > len(li)):
-        idx -= len(li)
-
-    temp = idx
-    li.pop(temp)
-
-print(c_list)
+print(*ans)
