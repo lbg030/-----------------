@@ -1,26 +1,23 @@
 n = int(input())
 
-
 for _ in range(n):
-    li = []
-    li.extend(list(map(str, input())))
-    idx = 0
-    ans = []
-    # print(li)
-    for j in range(len(li)):
-        if(li[j] == '<'):
-            if(idx > 0):
-                idx -= 1
-        elif(li[j] == '>'):
-            if(idx < len(li) - 1):
-                idx += 1
+    left = []
+    right = []
+    cmd = input()
 
-        elif(li[j] == '-'):
-            if(li[j] != '>' or li[j] != '<'):
-                ans.pop()
-
+    for i in cmd:
+        if i == '<':
+            if left:
+                right.append(left.pop())
+        elif i == '>':
+            if right:
+                left.append(right.pop())
+        elif i == '-':
+            if left:
+                left.pop()
         else:
-            ans.insert(idx, li[j])
-            idx += 1
+            left.append(i)
+        # print(left, right)
+    left.extend(reversed(right))
 
-    print(*ans, sep='')
+    print(''.join(left))
