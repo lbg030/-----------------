@@ -1,9 +1,4 @@
-from collections import deque
+a = [1, 2, 3, 4, 5]
 
-a = deque([1, 2, 3, 4, 5])
-
-a.rotate(-2)
-print(a)
-
-a.rotate(-1)
+a.insert(2, 888)
 print(a)
