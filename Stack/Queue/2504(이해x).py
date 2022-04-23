@@ -1,3 +1,5 @@
+# 아직 제대로 이해가 안됨.
+
 def solve():
     data = input()
     score = 0
