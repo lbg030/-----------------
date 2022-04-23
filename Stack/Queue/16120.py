@@ -9,7 +9,7 @@ stack = []
 ppap = ["P", "P", "A", "P"]
 for i in range(len(w)):
     stack.append(w[i])
-    print(stack)
+    # print(stack)
     if stack[-4:] == ppap:
         for _ in range(4):
             stack.pop()
