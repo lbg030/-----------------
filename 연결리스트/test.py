@@ -1,7 +1,5 @@
-from collections import deque
+lst = [1, 2, 3, 4, 5]
 
-n = int(input())
-li = deque(enumerate(map(int, input().split())))
-print(li)
-li.rotate(-1)
-print(li)
+lst[2] = 2 if lst[2] == 3 else 4
+
+print(lst)
