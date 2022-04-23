@@ -24,7 +24,8 @@ for _ in range(n):
                 left.pop()
         else:
             left.append(i)
-        print(left, right)
+
+        # print(left, right)
     left.extend(reversed(right))
 
     print(''.join(left))
