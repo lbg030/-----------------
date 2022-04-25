@@ -1,5 +1,6 @@
-lst = [1, 2, 3, 4, 5]
+from collections import deque
 
-for idx,  value in enumerate(lst):
-    print(idx)
-    print(value)
+turtleFaced = deque(['front', 'left', 'behind ', 'right'])
+
+turtleFaced.rotate(1)
+print(turtleFaced)
