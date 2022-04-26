@@ -4,9 +4,9 @@
 from ast import Pass
 from collections import deque
 
-# # 상 하 좌 우
-# dx = [0, 0, -1, 1]
-# dy = [-1, 1, 0, 0]
+# 상 하 좌 우
+dx = [0, 0, -1, 1]
+dy = [-1, 1, 0, 0]
 
 # 시간
 count = 0
@@ -33,7 +33,7 @@ for _ in range(moving):
     sec.append(int(second))
     way.append(direction)
 
-print(board, sec, way)
+# print(board, sec, way)
 
 # 뱀 이동 코드
 
@@ -64,16 +64,21 @@ while True:
 
     # 움직인거 카운트 and 뱀 위치 삽입
     else:
-        if board[x-1][y-1] != 1:
-            snakeLocation.popleft()
+        if(move not in snakeLocation):
+            count += 1  # 뱀 이동
+            # print(f" x = {x} y = {y}")
+            snakeLocation.append(move)
+            if board[x][y] != 1:
+                snakeLocation.popleft()
 
-        if (move in snakeLocation):
+            # 사과를 먹었을 때 0으로 초기화
+            else:
+                board[x][y] = 0
+
+        else:
+            count += 1
             print(count)
             break
-        else:
-            count += 1  # 뱀 이동
-            print(f" x = {x} y = {y}")
-            snakeLocation.append(move)
 
     # 정해진 시간에 방향 전환
     if sec:
@@ -86,4 +91,4 @@ while True:
             sec.popleft()
             way.popleft()
 
-    print(f"snakeLocation = {snakeLocation} and count = {count}")
+    # print(f"snakeLocation = {snakeLocation} and count = {count}")
