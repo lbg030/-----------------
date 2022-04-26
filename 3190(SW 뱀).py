@@ -4,9 +4,9 @@
 from ast import Pass
 from collections import deque
 
-# 상 하 좌 우
-dx = [0, 0, -1, 1]
-dy = [-1, 1, 0, 0]
+# # 상 하 좌 우
+# dx = [0, 0, -1, 1]
+# dy = [-1, 1, 0, 0]
 
 # 시간
 count = 0
@@ -64,7 +64,7 @@ while True:
 
     # 움직인거 카운트 and 뱀 위치 삽입
     else:
-        if board[x][y] != 1:
+        if board[x-1][y-1] != 1:
             snakeLocation.popleft()
 
         if (move in snakeLocation):
